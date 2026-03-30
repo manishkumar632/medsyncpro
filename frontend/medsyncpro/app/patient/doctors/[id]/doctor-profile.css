@@ -1,0 +1,666 @@
+/* ===================================================================
+   DOCTOR PROFILE PAGE — MedSyncPro
+   =================================================================== */
+
+.dp-standalone-nav {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: white;
+    border-bottom: 1px solid var(--pd-gray-200);
+    box-shadow: var(--pd-shadow);
+}
+
+.dp-nav-title {
+    font-weight: 700;
+    color: var(--pd-gray-700);
+    font-size: 0.95rem;
+}
+
+.dp-page {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 28px 20px 100px;
+}
+
+/* ── Hero Card ── */
+.dp-hero-card {
+    background: white;
+    border-radius: var(--pd-radius);
+    box-shadow: var(--pd-shadow-md);
+    overflow: hidden;
+    margin-bottom: 20px;
+    border: 1.5px solid var(--pd-gray-100);
+}
+
+.dp-hero-inner {
+    display: flex;
+    align-items: flex-start;
+    gap: 24px;
+    padding: 28px;
+    flex-wrap: wrap;
+}
+
+.dp-hero-avatar {
+    position: relative;
+    flex-shrink: 0;
+}
+
+.dp-hero-avatar img,
+.dp-hero-initials {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--pd-gray-100);
+}
+
+.dp-hero-initials {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, var(--pd-teal), var(--pd-blue));
+    color: white;
+    font-size: 1.6rem;
+    font-weight: 700;
+}
+
+.dp-hero-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.dp-hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 3px 10px;
+    background: var(--pd-teal-light);
+    color: var(--pd-teal-dark);
+    border-radius: 100px;
+    font-size: 0.73rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+}
+
+.dp-hero-name {
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: var(--pd-gray-800);
+    margin: 0 0 4px;
+}
+
+.dp-hero-specialty {
+    font-size: 1rem;
+    color: var(--pd-teal);
+    font-weight: 600;
+    margin: 0 0 10px;
+}
+
+.dp-hero-stats {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-bottom: 12px;
+}
+
+.dp-stat {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 0.82rem;
+    color: var(--pd-gray-600);
+}
+
+.dp-consult-chips {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.dp-hero-cta {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 8px;
+    flex-shrink: 0;
+}
+
+.dp-book-hero-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 13px 24px;
+    background: linear-gradient(135deg, var(--pd-teal), var(--pd-teal-dark));
+    color: white;
+    border: none;
+    border-radius: var(--pd-radius-sm);
+    font-size: 0.95rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all var(--pd-transition);
+    box-shadow: 0 3px 10px rgba(13, 148, 136, 0.3);
+    font-family: inherit;
+    white-space: nowrap;
+}
+
+.dp-book-hero-btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 5px 16px rgba(13, 148, 136, 0.4);
+}
+
+.dp-fee {
+    font-size: 0.8rem;
+    color: var(--pd-gray-500);
+    margin: 0;
+    text-align: right;
+}
+
+/* ── Tabs ── */
+.dp-tabs-bar {
+    display: flex;
+    gap: 4px;
+    background: white;
+    border-radius: var(--pd-radius-sm);
+    padding: 6px;
+    margin-bottom: 18px;
+    box-shadow: var(--pd-shadow);
+    border: 1px solid var(--pd-gray-100);
+    flex-wrap: wrap;
+}
+
+.dp-tab {
+    padding: 9px 20px;
+    border-radius: var(--pd-radius-xs);
+    border: none;
+    background: transparent;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--pd-gray-500);
+    cursor: pointer;
+    transition: all var(--pd-transition);
+    font-family: inherit;
+}
+
+.dp-tab:hover {
+    color: var(--pd-gray-700);
+    background: var(--pd-gray-50);
+}
+
+.dp-tab.active {
+    background: var(--pd-teal-light);
+    color: var(--pd-teal-dark);
+}
+
+/* ── Tab Content ── */
+.dp-tab-content {
+    margin-bottom: 20px;
+}
+
+.dp-section-grid {
+    display: grid;
+    gap: 16px;
+}
+
+.dp-info-card {
+    background: white;
+    border-radius: var(--pd-radius);
+    padding: 22px;
+    box-shadow: var(--pd-shadow);
+    border: 1px solid var(--pd-gray-100);
+}
+
+.dp-info-card h3 {
+    font-size: 0.875rem;
+    font-weight: 700;
+    color: var(--pd-gray-600);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin: 0 0 14px;
+}
+
+.dp-info-card p {
+    font-size: 0.9rem;
+    color: var(--pd-gray-600);
+    line-height: 1.7;
+    margin: 0;
+}
+
+.dp-chip-row {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.dp-chip {
+    padding: 4px 12px;
+    background: var(--pd-gray-100);
+    border-radius: 100px;
+    font-size: 0.8rem;
+    color: var(--pd-gray-700);
+    font-weight: 500;
+}
+
+.dp-chip-teal {
+    background: var(--pd-teal-light);
+    color: var(--pd-teal-dark);
+}
+
+/* ── Qualifications ── */
+.dp-qual-list {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.dp-qual-item {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+}
+
+.dp-qual-icon {
+    font-size: 1.3rem;
+    flex-shrink: 0;
+}
+
+.dp-qual-title {
+    font-weight: 700;
+    color: var(--pd-gray-700);
+    font-size: 0.9rem;
+}
+
+.dp-qual-inst {
+    font-size: 0.82rem;
+    color: var(--pd-gray-500);
+    margin-top: 2px;
+}
+
+.dp-qual-year {
+    font-size: 0.78rem;
+    color: var(--pd-gray-400);
+    margin-top: 2px;
+}
+
+/* ── Clinic ── */
+.dp-clinic-details {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.dp-clinic-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 0.875rem;
+    color: var(--pd-gray-600);
+}
+
+/* ── Documents ── */
+.dp-doc-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.dp-doc-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 16px;
+    border: 1px solid var(--pd-gray-200);
+    border-radius: var(--pd-radius-xs);
+    text-decoration: none;
+    color: var(--pd-gray-700);
+    transition: all var(--pd-transition);
+    font-size: 0.875rem;
+}
+
+.dp-doc-item:hover {
+    border-color: var(--pd-teal);
+    background: var(--pd-teal-light);
+    color: var(--pd-teal-dark);
+}
+
+.dp-doc-icon {
+    font-size: 1.2rem;
+}
+
+.dp-doc-name {
+    flex: 1;
+    font-weight: 500;
+}
+
+/* ── Empty Tab ── */
+.dp-empty-tab {
+    color: var(--pd-gray-400);
+    font-size: 0.875rem;
+    text-align: center;
+    padding: 40px 20px;
+    background: white;
+    border-radius: var(--pd-radius);
+    box-shadow: var(--pd-shadow);
+}
+
+/* ── Sticky CTA (Mobile) ── */
+.dp-sticky-cta {
+    display: none;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 16px 20px;
+    background: white;
+    border-top: 1px solid var(--pd-gray-200);
+    box-shadow: 0 -4px 16px rgba(0,0,0,0.08);
+    z-index: 40;
+}
+
+.dp-sticky-cta .dp-book-hero-btn {
+    width: 100%;
+    justify-content: center;
+}
+
+/* ── Book Modal ── */
+.dp-modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(15, 23, 42, 0.5);
+    backdrop-filter: blur(4px);
+    z-index: 200;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.dp-modal {
+    background: white;
+    border-radius: var(--pd-radius);
+    width: 100%;
+    max-width: 520px;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+}
+
+.dp-modal-header {
+    padding: 24px 24px 0;
+    position: relative;
+}
+
+.dp-modal-header h2 {
+    font-size: 1.2rem;
+    font-weight: 800;
+    color: var(--pd-gray-800);
+    margin: 0 0 4px;
+}
+
+.dp-modal-header p {
+    font-size: 0.85rem;
+    color: var(--pd-gray-500);
+    margin: 0;
+}
+
+.dp-modal-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: var(--pd-gray-100);
+    border: none;
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    cursor: pointer;
+    font-size: 0.85rem;
+    color: var(--pd-gray-500);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all var(--pd-transition);
+}
+
+.dp-modal-close:hover {
+    background: var(--pd-gray-200);
+    color: var(--pd-gray-800);
+}
+
+.dp-modal-body {
+    padding: 20px 24px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.dp-modal-section {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.dp-label {
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: var(--pd-gray-700);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+.dp-optional {
+    font-weight: 400;
+    text-transform: none;
+    color: var(--pd-gray-400);
+}
+
+.dp-consult-types {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.dp-consult-btn {
+    padding: 9px 18px;
+    border-radius: var(--pd-radius-xs);
+    border: 2px solid var(--pd-gray-200);
+    background: white;
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all var(--pd-transition);
+    font-family: inherit;
+    color: var(--pd-gray-600);
+}
+
+.dp-consult-btn.selected,
+.dp-consult-btn:hover {
+    border-color: var(--pd-teal);
+    color: var(--pd-teal-dark);
+    background: var(--pd-teal-light);
+}
+
+.dp-slots-loading {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+
+.dp-slots-error,
+.dp-no-slots {
+    font-size: 0.85rem;
+    color: var(--pd-gray-500);
+    text-align: center;
+    padding: 10px;
+}
+
+.dp-slot-group {
+    margin-bottom: 12px;
+}
+
+.dp-slot-date {
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: var(--pd-gray-500);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 8px;
+}
+
+.dp-slot-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.dp-slot-btn {
+    padding: 7px 14px;
+    border-radius: var(--pd-radius-xs);
+    border: 1.5px solid var(--pd-gray-200);
+    background: white;
+    font-size: 0.82rem;
+    font-weight: 600;
+    cursor: pointer;
+    color: var(--pd-gray-700);
+    transition: all var(--pd-transition);
+    font-family: inherit;
+}
+
+.dp-slot-btn:hover:not(:disabled) {
+    border-color: var(--pd-teal);
+    color: var(--pd-teal-dark);
+    background: var(--pd-teal-light);
+}
+
+.dp-slot-btn.selected {
+    background: var(--pd-teal);
+    border-color: var(--pd-teal);
+    color: white;
+    box-shadow: 0 2px 8px rgba(13, 148, 136, 0.3);
+}
+
+.dp-slot-btn.booked {
+    opacity: 0.45;
+    cursor: not-allowed;
+    text-decoration: line-through;
+}
+
+.dp-reason-input {
+    width: 100%;
+    border: 1.5px solid var(--pd-gray-200);
+    border-radius: var(--pd-radius-xs);
+    padding: 10px 14px;
+    font-size: 0.875rem;
+    font-family: inherit;
+    color: var(--pd-gray-700);
+    resize: vertical;
+    transition: border-color var(--pd-transition);
+    box-sizing: border-box;
+}
+
+.dp-reason-input:focus {
+    outline: none;
+    border-color: var(--pd-teal);
+    box-shadow: 0 0 0 3px rgba(13, 148, 136, 0.1);
+}
+
+.dp-booking-error {
+    font-size: 0.85rem;
+    color: var(--pd-red);
+    background: var(--pd-red-light);
+    padding: 10px 14px;
+    border-radius: var(--pd-radius-xs);
+    margin: 0;
+}
+
+.dp-book-btn {
+    padding: 13px;
+    background: linear-gradient(135deg, var(--pd-teal), var(--pd-teal-dark));
+    color: white;
+    border: none;
+    border-radius: var(--pd-radius-sm);
+    font-size: 0.95rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all var(--pd-transition);
+    font-family: inherit;
+    box-shadow: 0 3px 10px rgba(13, 148, 136, 0.3);
+}
+
+.dp-book-btn:hover:not(:disabled) {
+    transform: translateY(-1px);
+    box-shadow: 0 5px 16px rgba(13, 148, 136, 0.4);
+}
+
+.dp-book-btn:disabled {
+    opacity: 0.55;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+/* ── Booking Success ── */
+.dp-booking-success {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    padding: 40px 24px;
+    text-align: center;
+}
+
+.dp-success-icon {
+    font-size: 3rem;
+}
+
+.dp-booking-success h3 {
+    font-size: 1.2rem;
+    font-weight: 800;
+    color: var(--pd-gray-800);
+    margin: 0;
+}
+
+.dp-booking-success p {
+    font-size: 0.875rem;
+    color: var(--pd-gray-500);
+    margin: 0;
+    line-height: 1.6;
+}
+
+/* ── Full page loading/error ── */
+.dp-full-loading,
+.dp-full-error {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    gap: 16px;
+    color: var(--pd-gray-500);
+    font-family: inherit;
+}
+
+/* ── Responsive ── */
+@media (max-width: 640px) {
+    .dp-hero-inner {
+        flex-direction: column;
+    }
+
+    .dp-hero-cta {
+        align-items: stretch;
+        width: 100%;
+    }
+
+    .dp-hero-cta .dp-book-hero-btn {
+        display: none;
+    }
+
+    .dp-sticky-cta {
+        display: flex;
+    }
+
+    .dp-hero-name {
+        font-size: 1.3rem;
+    }
+}

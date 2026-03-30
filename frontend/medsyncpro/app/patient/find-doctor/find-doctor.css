@@ -1,0 +1,591 @@
+/* ===================================================================
+   FIND DOCTOR PAGE — MedSyncPro Patient Flow
+   Uses pd-* variables from patient-dashboard.css
+   =================================================================== */
+
+/* ── Breadcrumb ── */
+.fd-breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.82rem;
+}
+
+.fd-bc-item {
+    color: var(--pd-gray-500);
+    cursor: pointer;
+    transition: color var(--pd-transition);
+}
+
+.fd-bc-item:hover {
+    color: var(--pd-teal);
+}
+
+.fd-bc-item.active {
+    color: var(--pd-gray-800);
+    font-weight: 600;
+    cursor: default;
+}
+
+.fd-bc-sep {
+    color: var(--pd-gray-300);
+}
+
+/* ── Navbar center breadcrumb area ── */
+.pd-navbar-center {
+    flex: 1;
+    padding: 0 16px;
+}
+
+/* ── Page Header ── */
+.fd-page-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 28px;
+    flex-wrap: wrap;
+}
+
+.fd-page-header-left {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.fd-back-btn {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 14px;
+    background: var(--pd-white);
+    border: 1px solid var(--pd-gray-200);
+    border-radius: var(--pd-radius-xs);
+    color: var(--pd-gray-600);
+    font-size: 0.85rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all var(--pd-transition);
+    white-space: nowrap;
+}
+
+.fd-back-btn:hover {
+    background: var(--pd-gray-50);
+    color: var(--pd-teal);
+    border-color: var(--pd-teal);
+}
+
+.fd-page-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--pd-gray-800);
+    margin: 0;
+    line-height: 1.2;
+}
+
+.fd-page-sub {
+    font-size: 0.875rem;
+    color: var(--pd-gray-500);
+    margin: 4px 0 0;
+}
+
+/* ── Search Box ── */
+.fd-search-box {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--pd-white);
+    border: 1.5px solid var(--pd-gray-200);
+    border-radius: var(--pd-radius-sm);
+    padding: 10px 16px;
+    min-width: 280px;
+    box-shadow: var(--pd-shadow);
+    transition: border-color var(--pd-transition);
+}
+
+.fd-search-box:focus-within {
+    border-color: var(--pd-teal);
+    box-shadow: 0 0 0 3px rgba(13, 148, 136, 0.1);
+}
+
+.fd-search-box input {
+    border: none;
+    outline: none;
+    flex: 1;
+    font-size: 0.9rem;
+    color: var(--pd-gray-700);
+    background: transparent;
+    font-family: inherit;
+}
+
+.fd-search-box input::placeholder {
+    color: var(--pd-gray-400);
+}
+
+.fd-search-clear {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--pd-gray-400);
+    font-size: 0.85rem;
+    padding: 0;
+    line-height: 1;
+    transition: color var(--pd-transition);
+}
+
+.fd-search-clear:hover {
+    color: var(--pd-gray-600);
+}
+
+/* ── Section Block ── */
+.fd-section-block {
+    margin-bottom: 32px;
+}
+
+.fd-section-label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--pd-gray-600);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 16px;
+}
+
+/* ── Specialty Grid ── */
+.fd-specialty-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 14px;
+}
+
+.fd-specialty-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding: 22px 16px 18px;
+    background: var(--pd-white);
+    border: 2px solid transparent;
+    border-radius: var(--pd-radius);
+    cursor: pointer;
+    transition: all var(--pd-transition);
+    box-shadow: var(--pd-shadow);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.fd-specialty-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, var(--pd-teal-light), transparent);
+    opacity: 0;
+    transition: opacity var(--pd-transition);
+}
+
+.fd-specialty-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--pd-shadow-md);
+    border-color: var(--pd-teal);
+}
+
+.fd-specialty-card:hover::before {
+    opacity: 1;
+}
+
+.fd-specialty-card.selected {
+    border-color: var(--pd-teal);
+    background: var(--pd-teal-light);
+    box-shadow: 0 0 0 3px rgba(13, 148, 136, 0.15);
+}
+
+.fd-sp-icon {
+    font-size: 2rem;
+    line-height: 1;
+    position: relative;
+    z-index: 1;
+}
+
+.fd-sp-name {
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--pd-gray-700);
+    line-height: 1.3;
+    position: relative;
+    z-index: 1;
+}
+
+.fd-sp-count {
+    font-size: 0.73rem;
+    color: var(--pd-gray-400);
+    position: relative;
+    z-index: 1;
+}
+
+/* ── Doctor Grid ── */
+.fd-doctors-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 18px;
+}
+
+/* ── Doctor Card ── */
+.fd-doctor-card {
+    background: var(--pd-white);
+    border-radius: var(--pd-radius);
+    padding: 22px;
+    box-shadow: var(--pd-shadow);
+    border: 1.5px solid var(--pd-gray-100);
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    transition: all var(--pd-transition);
+    position: relative;
+    overflow: hidden;
+}
+
+.fd-doctor-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--pd-teal), var(--pd-blue));
+    opacity: 0;
+    transition: opacity var(--pd-transition);
+}
+
+.fd-doctor-card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--pd-shadow-lg);
+    border-color: var(--pd-gray-200);
+}
+
+.fd-doctor-card:hover::before {
+    opacity: 1;
+}
+
+.fd-doctor-card-top {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+}
+
+.fd-doctor-avatar {
+    position: relative;
+    flex-shrink: 0;
+}
+
+.fd-doctor-avatar img,
+.fd-avatar-initials {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--pd-gray-100);
+}
+
+.fd-avatar-initials {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, var(--pd-teal), var(--pd-blue));
+    color: white;
+    font-size: 1.1rem;
+    font-weight: 700;
+}
+
+.fd-avail-dot {
+    position: absolute;
+    bottom: 2px;
+    right: 2px;
+    width: 13px;
+    height: 13px;
+    border-radius: 50%;
+    border: 2px solid white;
+}
+
+.fd-avail-dot.available {
+    background: #22c55e;
+}
+
+.fd-avail-dot.busy {
+    background: var(--pd-gray-400);
+}
+
+.fd-doctor-meta {
+    flex: 1;
+    min-width: 0;
+}
+
+.fd-doctor-name {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--pd-gray-800);
+    margin: 0 0 3px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.fd-doctor-specialty {
+    font-size: 0.82rem;
+    color: var(--pd-teal);
+    font-weight: 600;
+    margin: 0 0 5px;
+}
+
+.fd-doctor-exp,
+.fd-doctor-clinic {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 0.78rem;
+    color: var(--pd-gray-500);
+    margin: 2px 0;
+}
+
+.fd-doctor-card-mid {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+/* ── Tags ── */
+.fd-tags {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+}
+
+.fd-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 3px;
+    padding: 3px 10px;
+    border-radius: 100px;
+    font-size: 0.73rem;
+    font-weight: 600;
+}
+
+.fd-tag.online {
+    background: var(--pd-blue-light);
+    color: var(--pd-blue);
+}
+
+.fd-tag.inperson {
+    background: var(--pd-teal-light);
+    color: var(--pd-teal);
+}
+
+.fd-tag.avail {
+    background: #dcfce7;
+    color: #16a34a;
+}
+
+/* ── Rating ── */
+.fd-rating {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    white-space: nowrap;
+}
+
+.fd-stars {
+    color: var(--pd-orange);
+    font-size: 0.78rem;
+    letter-spacing: -1px;
+}
+
+.fd-rating-num {
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: var(--pd-gray-700);
+}
+
+.fd-rating-count {
+    font-size: 0.75rem;
+    color: var(--pd-gray-400);
+}
+
+/* ── Bio ── */
+.fd-doctor-bio {
+    font-size: 0.8rem;
+    color: var(--pd-gray-500);
+    line-height: 1.5;
+    margin: 0;
+    padding: 10px;
+    background: var(--pd-gray-50);
+    border-radius: var(--pd-radius-xs);
+    border-left: 3px solid var(--pd-gray-200);
+}
+
+/* ── Card Actions ── */
+.fd-doctor-card-actions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-top: auto;
+}
+
+.fd-btn-secondary,
+.fd-btn-primary {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    padding: 10px 14px;
+    border-radius: var(--pd-radius-xs);
+    font-size: 0.82rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all var(--pd-transition);
+    border: none;
+    font-family: inherit;
+}
+
+.fd-btn-secondary {
+    background: var(--pd-gray-100);
+    color: var(--pd-gray-700);
+    border: 1.5px solid var(--pd-gray-200);
+}
+
+.fd-btn-secondary:hover {
+    background: var(--pd-gray-200);
+    color: var(--pd-gray-800);
+}
+
+.fd-btn-primary {
+    background: linear-gradient(135deg, var(--pd-teal), var(--pd-teal-dark));
+    color: white;
+    box-shadow: 0 2px 8px rgba(13, 148, 136, 0.25);
+}
+
+.fd-btn-primary:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 14px rgba(13, 148, 136, 0.35);
+}
+
+/* ── Load More ── */
+.fd-load-more {
+    display: flex;
+    justify-content: center;
+    margin-top: 28px;
+}
+
+.fd-load-more-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 32px;
+    background: var(--pd-white);
+    border: 2px solid var(--pd-teal);
+    border-radius: var(--pd-radius-sm);
+    color: var(--pd-teal);
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all var(--pd-transition);
+    font-family: inherit;
+}
+
+.fd-load-more-btn:hover:not(:disabled) {
+    background: var(--pd-teal);
+    color: white;
+}
+
+.fd-load-more-btn:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+/* ── Loading / Error / Empty States ── */
+.fd-loading-state,
+.fd-error-state,
+.fd-empty-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    padding: 80px 24px;
+    text-align: center;
+    color: var(--pd-gray-500);
+}
+
+.fd-spinner {
+    width: 36px;
+    height: 36px;
+    border: 3px solid var(--pd-gray-200);
+    border-top-color: var(--pd-teal);
+    border-radius: 50%;
+    animation: fd-spin 0.7s linear infinite;
+}
+
+.fd-spinner-sm {
+    width: 14px;
+    height: 14px;
+    border: 2px solid rgba(255,255,255,0.4);
+    border-top-color: var(--pd-teal);
+    border-radius: 50%;
+    animation: fd-spin 0.7s linear infinite;
+}
+
+@keyframes fd-spin {
+    to { transform: rotate(360deg); }
+}
+
+.fd-error-icon,
+.fd-empty-icon {
+    font-size: 2.5rem;
+}
+
+.fd-retry-btn {
+    margin-top: 4px;
+    padding: 8px 22px;
+    background: var(--pd-teal);
+    color: white;
+    border: none;
+    border-radius: var(--pd-radius-xs);
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background var(--pd-transition);
+    font-family: inherit;
+}
+
+.fd-retry-btn:hover {
+    background: var(--pd-teal-dark);
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+    .fd-specialty-grid {
+        grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+    }
+
+    .fd-doctors-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .fd-page-header {
+        flex-direction: column;
+        gap: 14px;
+    }
+
+    .fd-search-box {
+        min-width: unset;
+        width: 100%;
+    }
+
+    .fd-page-header-left {
+        flex-wrap: wrap;
+    }
+}

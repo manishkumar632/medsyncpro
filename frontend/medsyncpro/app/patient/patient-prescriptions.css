@@ -1,0 +1,1214 @@
+/* ══════════════════════════════════════════════════════════════════════════
+   patient-prescriptions.css
+   Matches the existing patient-dashboard.css teal/blue glassmorphism system.
+   Import once in patient/layout.jsx alongside the other patient CSS files.
+   ══════════════════════════════════════════════════════════════════════════ */
+
+/* ── Page shell ─────────────────────────────────────────────────────────── */
+.prx-page {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    padding: 28px 28px 64px;
+    max-width: 1140px;
+}
+
+/* ── Page header ────────────────────────────────────────────────────────── */
+.prx-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.prx-title-wrap {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.prx-title {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin: 0;
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: #0f172a;
+    letter-spacing: -0.03em;
+}
+
+.prx-title-icon {
+    width: 46px;
+    height: 46px;
+    border-radius: 14px;
+    background: linear-gradient(135deg, #ccfbf1, #99f6e4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #0d9488;
+    flex-shrink: 0;
+}
+
+.prx-subtitle {
+    margin: 0 0 0 60px;
+    font-size: 0.84rem;
+    color: #64748b;
+}
+
+/* ── Stats row ──────────────────────────────────────────────────────────── */
+.prx-stats-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+}
+
+.prx-stat-card {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 16px 18px;
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.75);
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.prx-stat-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 22px rgba(0, 0, 0, 0.07);
+}
+
+.prx-stat-card--teal {
+    background: linear-gradient(135deg, #f0fdfa, #ccfbf1);
+}
+
+.prx-stat-card--blue {
+    background: linear-gradient(135deg, #eff6ff, #dbeafe);
+}
+
+.prx-stat-card--purple {
+    background: linear-gradient(135deg, #faf5ff, #ede9fe);
+}
+
+.prx-stat-icon {
+    width: 42px;
+    height: 42px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.prx-stat-icon--teal {
+    background: rgba(13, 148, 136, 0.12);
+    color: #0d9488;
+}
+
+.prx-stat-icon--blue {
+    background: rgba(37, 99, 235, 0.1);
+    color: #2563eb;
+}
+
+.prx-stat-icon--purple {
+    background: rgba(124, 58, 237, 0.1);
+    color: #7c3aed;
+}
+
+.prx-stat-value {
+    font-size: 1.7rem;
+    font-weight: 800;
+    color: #0f172a;
+    line-height: 1;
+}
+
+.prx-stat-label {
+    font-size: 0.73rem;
+    color: #64748b;
+    margin-top: 3px;
+    font-weight: 500;
+}
+
+/* ── Toolbar ────────────────────────────────────────────────────────────── */
+.prx-toolbar {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.prx-search-wrap {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    flex: 1;
+    min-width: 240px;
+    max-width: 440px;
+    padding: 10px 14px;
+    border-radius: 13px;
+    border: 1.5px solid #e2e8f0;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(12px);
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
+    transition: border-color 0.18s, box-shadow 0.18s;
+}
+
+.prx-search-wrap:focus-within {
+    border-color: #0d9488;
+    box-shadow: 0 0 0 3px rgba(13, 148, 136, 0.1);
+}
+
+.prx-search-wrap svg {
+    color: #94a3b8;
+    flex-shrink: 0;
+}
+
+.prx-search-input {
+    flex: 1;
+    border: none;
+    outline: none;
+    background: transparent;
+    font-size: 0.85rem;
+    font-family: inherit;
+    color: #1e293b;
+}
+
+.prx-search-input::placeholder {
+    color: #94a3b8;
+}
+
+.prx-clear-btn {
+    width: 20px;
+    height: 20px;
+    border: none;
+    background: #e2e8f0;
+    color: #64748b;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    line-height: 1;
+    flex-shrink: 0;
+    transition: background 0.15s;
+}
+
+.prx-clear-btn:hover {
+    background: #cbd5e1;
+}
+
+.prx-refresh-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 12px;
+    border: 1.5px solid #e2e8f0;
+    background: rgba(255, 255, 255, 0.95);
+    color: #64748b;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.18s;
+    flex-shrink: 0;
+}
+
+.prx-refresh-btn:hover {
+    border-color: #0d9488;
+    color: #0d9488;
+    background: rgba(13, 148, 136, 0.05);
+}
+
+.prx-refresh-btn--spinning svg {
+    animation: prxSpin 0.8s linear infinite;
+}
+
+/* ── Filter pills ───────────────────────────────────────────────────────── */
+.prx-filter-pills {
+    display: flex;
+    gap: 6px;
+    padding: 4px;
+    background: rgba(255, 255, 255, 0.8);
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    border-radius: 13px;
+    backdrop-filter: blur(10px);
+}
+
+.prx-pill {
+    padding: 7px 16px;
+    border-radius: 9px;
+    border: none;
+    background: transparent;
+    font-size: 0.79rem;
+    font-weight: 600;
+    color: #64748b;
+    cursor: pointer;
+    font-family: inherit;
+    transition: all 0.18s;
+    white-space: nowrap;
+}
+
+.prx-pill:hover {
+    background: rgba(13, 148, 136, 0.07);
+    color: #0d9488;
+}
+
+.prx-pill--active {
+    background: linear-gradient(135deg, #0d9488, #0891b2);
+    color: #fff;
+    box-shadow: 0 2px 8px rgba(13, 148, 136, 0.28);
+}
+
+.prx-pill--active:hover {
+    background: linear-gradient(135deg, #0d9488, #0891b2);
+    color: #fff;
+}
+
+/* ── Alert banner ───────────────────────────────────────────────────────── */
+.prx-error-banner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 13px 18px;
+    border-radius: 13px;
+    background: rgba(239, 68, 68, 0.06);
+    border: 1px solid rgba(239, 68, 68, 0.15);
+    color: #dc2626;
+    font-size: 0.85rem;
+}
+
+.prx-retry-btn {
+    padding: 5px 14px;
+    border-radius: 8px;
+    border: none;
+    background: rgba(239, 68, 68, 0.12);
+    color: #dc2626;
+    font-size: 0.8rem;
+    font-weight: 700;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: background 0.15s;
+    font-family: inherit;
+}
+
+.prx-retry-btn:hover {
+    background: rgba(239, 68, 68, 0.2);
+}
+
+/* ── Card grid ──────────────────────────────────────────────────────────── */
+.prx-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(330px, 1fr));
+    gap: 16px;
+    align-items: start;
+}
+
+/* ── Prescription card ──────────────────────────────────────────────────── */
+.prx-card {
+    position: relative;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 20px;
+    border: 1.5px solid #f1f5f9;
+    padding: 20px 20px 16px;
+    cursor: pointer;
+    overflow: hidden;
+    transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
+}
+
+.prx-card:hover {
+    border-color: rgba(13, 148, 136, 0.4);
+    box-shadow: 0 8px 32px rgba(13, 148, 136, 0.1);
+    transform: translateY(-3px);
+}
+
+/* Colour accent bar at top */
+.prx-card-bar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #0d9488, #0891b2, #2563eb);
+    border-radius: 20px 20px 0 0;
+}
+
+/* Doctor row */
+.prx-card-doctor {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 14px;
+}
+
+.prx-card-doctor-left {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    min-width: 0;
+}
+
+.prx-doctor-avatar {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 0.78rem;
+    color: #fff;
+    letter-spacing: -0.02em;
+}
+
+.prx-doctor-name {
+    font-weight: 700;
+    font-size: 0.88rem;
+    color: #0f172a;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.prx-doctor-specialty {
+    font-size: 0.72rem;
+    color: #64748b;
+    margin-top: 1px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.prx-card-meta {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 4px;
+    flex-shrink: 0;
+}
+
+.prx-card-date {
+    font-size: 0.7rem;
+    color: #94a3b8;
+    white-space: nowrap;
+}
+
+.prx-card-count {
+    font-size: 0.68rem;
+    font-weight: 700;
+    padding: 2px 9px;
+    border-radius: 6px;
+    background: rgba(13, 148, 136, 0.08);
+    color: #0d9488;
+    white-space: nowrap;
+}
+
+/* Diagnosis row */
+.prx-card-diagnosis {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.82rem;
+    color: #334155;
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+
+.prx-card-diagnosis-label {
+    color: #64748b;
+    font-size: 0.72rem;
+    flex-shrink: 0;
+}
+
+.prx-card-diagnosis-text {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Medicine pills */
+.prx-card-meds {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    margin-bottom: 14px;
+}
+
+.prx-med-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 3px 10px;
+    border-radius: 7px;
+    background: rgba(13, 148, 136, 0.07);
+    color: #0d9488;
+    font-size: 0.72rem;
+    font-weight: 600;
+    border: 1px solid rgba(13, 148, 136, 0.12);
+    white-space: nowrap;
+}
+
+.prx-med-pill--more {
+    background: #f1f5f9;
+    color: #64748b;
+    border-color: transparent;
+}
+
+/* Card footer */
+.prx-card-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 11px;
+    border-top: 1px solid #f8fafc;
+}
+
+.prx-card-footer-detail {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 0.75rem;
+    color: #94a3b8;
+}
+
+.prx-view-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 5px 12px;
+    border-radius: 8px;
+    border: 1.5px solid rgba(13, 148, 136, 0.2);
+    background: rgba(13, 148, 136, 0.05);
+    color: #0d9488;
+    font-size: 0.75rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.15s;
+    font-family: inherit;
+}
+
+.prx-view-btn:hover {
+    background: #0d9488;
+    color: #fff;
+    border-color: #0d9488;
+}
+
+/* ── Skeleton ───────────────────────────────────────────────────────────── */
+.prx-skeleton {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 20px;
+    border: 1.5px solid #f1f5f9;
+    padding: 20px;
+}
+
+.prx-skel-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 14px;
+}
+
+.prx-skel-circle {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background: #f1f5f9;
+    flex-shrink: 0;
+    animation: prxPulse 1.3s ease-in-out infinite;
+}
+
+.prx-skel-block {
+    background: #f1f5f9;
+    border-radius: 6px;
+    animation: prxPulse 1.3s ease-in-out infinite;
+}
+
+.prx-skel-line--lg {
+    height: 13px;
+    width: 55%;
+    border-radius: 6px;
+    background: #f1f5f9;
+    animation: prxPulse 1.3s ease-in-out infinite;
+    margin-bottom: 7px;
+}
+
+.prx-skel-line--sm {
+    height: 10px;
+    width: 35%;
+    border-radius: 5px;
+    background: #f8fafc;
+    animation: prxPulse 1.3s ease-in-out infinite;
+}
+
+.prx-skel-line--md {
+    height: 11px;
+    width: 70%;
+    border-radius: 6px;
+    background: #f8fafc;
+    animation: prxPulse 1.3s ease-in-out infinite;
+    margin-bottom: 10px;
+}
+
+.prx-skel-pills {
+    display: flex;
+    gap: 6px;
+    margin-bottom: 14px;
+}
+
+.prx-skel-pill {
+    height: 24px;
+    border-radius: 7px;
+    background: #f1f5f9;
+    animation: prxPulse 1.3s ease-in-out infinite;
+}
+
+/* ── Empty state ────────────────────────────────────────────────────────── */
+.prx-empty {
+    grid-column: 1 / -1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 72px 24px;
+    text-align: center;
+    gap: 12px;
+}
+
+.prx-empty-icon {
+    width: 76px;
+    height: 76px;
+    border-radius: 22px;
+    background: linear-gradient(135deg, #f0fdfa, #dcfce7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 4px;
+}
+
+.prx-empty h3 {
+    margin: 0;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #475569;
+}
+
+.prx-empty p {
+    margin: 0;
+    font-size: 0.84rem;
+    color: #94a3b8;
+    max-width: 320px;
+    line-height: 1.55;
+}
+
+/* ── Pagination ─────────────────────────────────────────────────────────── */
+.prx-pagination {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+    padding-top: 20px;
+    border-top: 1px solid #f1f5f9;
+}
+
+.prx-page-info {
+    font-size: 0.8rem;
+    color: #94a3b8;
+}
+
+.prx-page-btns {
+    display: flex;
+    gap: 5px;
+}
+
+.prx-page-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 7px 15px;
+    border-radius: 9px;
+    border: 1.5px solid #e2e8f0;
+    background: #fff;
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: #475569;
+    cursor: pointer;
+    transition: all 0.16s;
+    font-family: inherit;
+}
+
+.prx-page-btn:hover:not(:disabled) {
+    border-color: #0d9488;
+    color: #0d9488;
+    background: rgba(13, 148, 136, 0.05);
+}
+
+.prx-page-btn:disabled {
+    opacity: 0.35;
+    cursor: not-allowed;
+}
+
+/* ══════════════════════════════════════════════════════════════════════════
+   DETAIL DRAWER
+   ══════════════════════════════════════════════════════════════════════════ */
+
+.prx-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(15, 23, 42, 0.42);
+    backdrop-filter: blur(5px);
+    z-index: 800;
+    animation: prxFadeIn 0.18s ease;
+}
+
+.prx-drawer {
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    width: 480px;
+    max-width: 95vw;
+    background: #fff;
+    z-index: 900;
+    display: flex;
+    flex-direction: column;
+    box-shadow: -14px 0 56px rgba(0, 0, 0, 0.14);
+    animation: prxSlideIn 0.27s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.prx-drawer-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 24px;
+    border-bottom: 1px solid #f1f5f9;
+    flex-shrink: 0;
+}
+
+.prx-drawer-title-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.prx-drawer-icon {
+    width: 42px;
+    height: 42px;
+    border-radius: 13px;
+    background: linear-gradient(135deg, #dbeafe, #bfdbfe);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #2563eb;
+    flex-shrink: 0;
+}
+
+.prx-drawer-title {
+    margin: 0;
+    font-size: 1.02rem;
+    font-weight: 800;
+    color: #0f172a;
+}
+
+.prx-drawer-date {
+    margin: 0;
+    font-size: 0.74rem;
+    color: #94a3b8;
+    margin-top: 1px;
+}
+
+.prx-drawer-close {
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+    border: none;
+    background: rgba(0, 0, 0, 0.05);
+    color: #64748b;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.15s;
+    flex-shrink: 0;
+}
+
+.prx-drawer-close:hover {
+    background: rgba(239, 68, 68, 0.08);
+    color: #ef4444;
+}
+
+.prx-drawer-body {
+    flex: 1;
+    overflow-y: auto;
+    padding: 20px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    scrollbar-width: thin;
+    scrollbar-color: #e2e8f0 transparent;
+}
+
+/* Doctor info card in drawer */
+.prx-drawer-doctor-card {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 14px 16px;
+    background: #f8fafc;
+    border-radius: 14px;
+    border: 1px solid #f1f5f9;
+}
+
+.prx-drawer-doctor-name {
+    font-weight: 800;
+    font-size: 0.97rem;
+    color: #0f172a;
+}
+
+.prx-drawer-doctor-spec {
+    font-size: 0.77rem;
+    color: #64748b;
+    margin-top: 2px;
+}
+
+.prx-drawer-doctor-when {
+    font-size: 0.72rem;
+    color: #94a3b8;
+    margin-top: 4px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+/* Section label */
+.prx-drawer-section-label {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    color: #64748b;
+    margin-bottom: 6px;
+}
+
+/* Clinical info boxes */
+.prx-clinical-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.prx-clinical-box {
+    padding: 12px 14px;
+    border-radius: 12px;
+}
+
+.prx-clinical-box--teal {
+    background: rgba(13, 148, 136, 0.05);
+    border: 1px solid rgba(13, 148, 136, 0.15);
+}
+
+.prx-clinical-box--blue {
+    background: rgba(37, 99, 235, 0.04);
+    border: 1px solid rgba(37, 99, 235, 0.12);
+}
+
+.prx-clinical-box-label {
+    font-size: 0.67rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-bottom: 4px;
+}
+
+.prx-clinical-box--teal .prx-clinical-box-label {
+    color: #0d9488;
+}
+
+.prx-clinical-box--blue .prx-clinical-box-label {
+    color: #2563eb;
+}
+
+.prx-clinical-box-text {
+    font-size: 0.87rem;
+    color: #1e293b;
+    font-weight: 500;
+    line-height: 1.5;
+}
+
+/* Medicine cards in drawer */
+.prx-med-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+}
+
+.prx-med-card {
+    padding: 13px 15px;
+    border-radius: 14px;
+    transition: opacity 0.15s;
+}
+
+.prx-med-card:hover {
+    opacity: 0.9;
+}
+
+.prx-med-card--0 {
+    background: #f0fdf4;
+    border: 1.5px solid #bbf7d0;
+}
+
+.prx-med-card--1 {
+    background: #eff6ff;
+    border: 1.5px solid #bfdbfe;
+}
+
+.prx-med-card--2 {
+    background: #fdf4ff;
+    border: 1.5px solid #e9d5ff;
+}
+
+.prx-med-card--3 {
+    background: #fff7ed;
+    border: 1.5px solid #fed7aa;
+}
+
+.prx-med-card--4 {
+    background: #f0fdfa;
+    border: 1.5px solid #99f6e4;
+}
+
+.prx-med-card-top {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 8px;
+}
+
+.prx-med-card-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.prx-med-card--0 .prx-med-card-dot {
+    background: #16a34a;
+}
+
+.prx-med-card--1 .prx-med-card-dot {
+    background: #2563eb;
+}
+
+.prx-med-card--2 .prx-med-card-dot {
+    background: #9333ea;
+}
+
+.prx-med-card--3 .prx-med-card-dot {
+    background: #ea580c;
+}
+
+.prx-med-card--4 .prx-med-card-dot {
+    background: #0d9488;
+}
+
+.prx-med-card-name {
+    font-weight: 700;
+    font-size: 0.9rem;
+    color: #0f172a;
+    flex: 1;
+}
+
+.prx-med-card-dosage {
+    font-size: 0.72rem;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 5px;
+}
+
+.prx-med-card--0 .prx-med-card-dosage {
+    background: rgba(22, 163, 74, 0.12);
+    color: #166534;
+}
+
+.prx-med-card--1 .prx-med-card-dosage {
+    background: rgba(37, 99, 235, 0.1);
+    color: #1d4ed8;
+}
+
+.prx-med-card--2 .prx-med-card-dosage {
+    background: rgba(147, 51, 234, 0.1);
+    color: #7e22ce;
+}
+
+.prx-med-card--3 .prx-med-card-dosage {
+    background: rgba(234, 88, 12, 0.1);
+    color: #c2410c;
+}
+
+.prx-med-card--4 .prx-med-card-dosage {
+    background: rgba(13, 148, 136, 0.1);
+    color: #0f766e;
+}
+
+.prx-med-card-details {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6px;
+    margin-bottom: 6px;
+}
+
+.prx-med-detail-item {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+}
+
+.prx-med-detail-key {
+    font-size: 0.64rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #94a3b8;
+}
+
+.prx-med-detail-val {
+    font-size: 0.8rem;
+    color: #334155;
+    font-weight: 500;
+}
+
+.prx-med-card-note {
+    font-size: 0.76rem;
+    color: #64748b;
+    background: rgba(0, 0, 0, 0.03);
+    border-radius: 8px;
+    padding: 6px 10px;
+    border-left: 3px solid;
+    line-height: 1.5;
+    margin-top: 4px;
+}
+
+.prx-med-card--0 .prx-med-card-note {
+    border-left-color: #16a34a;
+}
+
+.prx-med-card--1 .prx-med-card-note {
+    border-left-color: #2563eb;
+}
+
+.prx-med-card--2 .prx-med-card-note {
+    border-left-color: #9333ea;
+}
+
+.prx-med-card--3 .prx-med-card-note {
+    border-left-color: #ea580c;
+}
+
+.prx-med-card--4 .prx-med-card-note {
+    border-left-color: #0d9488;
+}
+
+.prx-no-meds {
+    text-align: center;
+    padding: 24px;
+    color: #94a3b8;
+    font-size: 0.84rem;
+    background: #f8fafc;
+    border-radius: 12px;
+    border: 1.5px dashed #e2e8f0;
+}
+
+/* Notes box in drawer */
+.prx-notes-box {
+    padding: 14px 16px;
+    background: rgba(37, 99, 235, 0.04);
+    border: 1px solid rgba(37, 99, 235, 0.12);
+    border-radius: 13px;
+}
+
+.prx-notes-label {
+    font-size: 0.67rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: #2563eb;
+    margin-bottom: 6px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.prx-notes-text {
+    font-size: 0.85rem;
+    color: #334155;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* Drawer footer */
+.prx-drawer-footer {
+    padding: 14px 24px;
+    border-top: 1px solid #f1f5f9;
+    display: flex;
+    gap: 10px;
+    flex-shrink: 0;
+}
+
+.prx-btn-ghost {
+    flex: 1;
+    padding: 10px;
+    border-radius: 12px;
+    border: 1.5px solid #e2e8f0;
+    background: #fff;
+    color: #64748b;
+    font-size: 0.84rem;
+    font-weight: 600;
+    cursor: pointer;
+    font-family: inherit;
+    transition: all 0.15s;
+}
+
+.prx-btn-ghost:hover {
+    background: #f8fafc;
+    border-color: #cbd5e1;
+}
+
+.prx-btn-primary {
+    flex: 1;
+    padding: 10px;
+    border-radius: 12px;
+    border: none;
+    background: linear-gradient(135deg, #0d9488, #0891b2);
+    color: #fff;
+    font-size: 0.84rem;
+    font-weight: 700;
+    cursor: pointer;
+    font-family: inherit;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    transition: all 0.18s;
+    box-shadow: 0 3px 12px rgba(13, 148, 136, 0.28);
+}
+
+.prx-btn-primary:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 5px 18px rgba(13, 148, 136, 0.36);
+}
+
+/* ── Animations ─────────────────────────────────────────────────────────── */
+@keyframes prxFadeIn {
+    from {
+        opacity: 0
+    }
+
+    to {
+        opacity: 1
+    }
+}
+
+@keyframes prxSlideIn {
+    from {
+        transform: translateX(100%)
+    }
+
+    to {
+        transform: translateX(0)
+    }
+}
+
+@keyframes prxPulse {
+
+    0%,
+    100% {
+        opacity: 0.5
+    }
+
+    50% {
+        opacity: 1
+    }
+}
+
+@keyframes prxSpin {
+    to {
+        transform: rotate(360deg)
+    }
+}
+
+/* ── Responsive ─────────────────────────────────────────────────────────── */
+@media (max-width: 1024px) {
+    .prx-stats-row {
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 10px;
+    }
+}
+
+@media (max-width: 768px) {
+    .prx-page {
+        padding: 20px 16px 56px;
+    }
+
+    .prx-title {
+        font-size: 1.3rem;
+    }
+
+    .prx-subtitle {
+        margin-left: 0;
+        margin-top: 4px;
+    }
+
+    .prx-title-wrap {
+        gap: 6px;
+    }
+
+    .prx-stats-row {
+        grid-template-columns: 1fr;
+    }
+
+    .prx-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .prx-filter-pills {
+        display: none;
+    }
+
+    .prx-search-wrap {
+        max-width: none;
+    }
+
+    .prx-drawer {
+        width: 100%;
+        border-radius: 20px 20px 0 0;
+        top: auto;
+        bottom: 0;
+        height: 90vh;
+        animation: prxSlideUp 0.27s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+}
+
+@media (max-width: 480px) {
+    .prx-med-card-details {
+        grid-template-columns: 1fr;
+    }
+}
+
+@keyframes prxSlideUp {
+    from {
+        transform: translateY(100%);
+    }
+
+    to {
+        transform: translateY(0);
+    }
+}

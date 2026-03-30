@@ -1,0 +1,286 @@
+/* ═══════════════════════════════════════════════════════════════════
+   Agent Dashboard – CSS
+   ═══════════════════════════════════════════════════════════════════ */
+
+.agent-layout {
+    display: flex;
+    min-height: 100vh;
+    background: #f0f4f8;
+    font-family: "Inter", "Segoe UI", sans-serif;
+}
+
+.agent-main-wrapper {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+}
+
+.agent-main-content {
+    flex: 1;
+    padding: 28px;
+    overflow-y: auto;
+}
+
+/* ── Sidebar ────────────────────────────────────────────────────── */
+
+.agent-sidebar {
+    width: 240px;
+    min-height: 100vh;
+    background: linear-gradient(180deg, #1e293b 0%, #0f172a 100%);
+    color: #e2e8f0;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease;
+    z-index: 100;
+}
+
+.agent-sidebar-brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 20px 20px 16px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.agent-sidebar-brand-icon {
+    width: 34px;
+    height: 34px;
+    background: linear-gradient(135deg, #6366f1, #8b5cf6);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.agent-sidebar-brand-text {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: -0.02em;
+}
+
+.agent-sidebar-nav {
+    flex: 1;
+    padding: 12px 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.agent-sidebar-link {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 14px;
+    border-radius: 10px;
+    font-size: 0.88rem;
+    color: #94a3b8;
+    text-decoration: none;
+    transition: all 0.15s ease;
+    cursor: pointer;
+    border: none;
+    background: none;
+    width: 100%;
+    text-align: left;
+}
+
+.agent-sidebar-link:hover {
+    background: rgba(255, 255, 255, 0.06);
+    color: #e2e8f0;
+}
+
+.agent-sidebar-link.active {
+    background: rgba(99, 102, 241, 0.15);
+    color: #a5b4fc;
+}
+
+/* ── Top Navbar ─────────────────────────────────────────────────── */
+
+.agent-topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 28px;
+    background: white;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.agent-topbar-left {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.agent-topbar-left h2 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #1e293b;
+}
+
+.agent-topbar-right {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.agent-topbar-avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #6366f1, #8b5cf6);
+    color: white;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.82rem;
+}
+
+/* ── Dashboard ──────────────────────────────────────────────────── */
+
+.agent-dashboard {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.agent-welcome {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.agent-welcome-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #1e293b;
+}
+
+.agent-welcome-sub {
+    font-size: 0.88rem;
+    color: #64748b;
+    margin-top: 4px;
+}
+
+.agent-glass-card {
+    background: white;
+    border-radius: 16px;
+    border: 1px solid #e2e8f0;
+    padding: 24px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+}
+
+.agent-stats-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+}
+
+.agent-stat-card {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.agent-stat-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+.agent-stat-icon.purple { background: linear-gradient(135deg, #6366f1, #8b5cf6); }
+.agent-stat-icon.teal { background: linear-gradient(135deg, #0d9488, #14b8a6); }
+.agent-stat-icon.amber { background: linear-gradient(135deg, #f59e0b, #fbbf24); }
+
+.agent-stat-value {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #1e293b;
+}
+
+.agent-stat-label {
+    font-size: 0.78rem;
+    color: #94a3b8;
+}
+
+/* ── Verification Status ────────────────────────────────────────── */
+
+.agent-verification-card {
+    text-align: center;
+    padding: 40px 24px;
+}
+
+.agent-verification-icon {
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    margin: 0 auto 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.agent-verification-icon.pending { background: #fef3c7; color: #f59e0b; }
+.agent-verification-icon.verified { background: #d1fae5; color: #10b981; }
+.agent-verification-icon.rejected { background: #fee2e2; color: #ef4444; }
+.agent-verification-icon.not-submitted { background: #e0e7ff; color: #6366f1; }
+
+.agent-verification-title {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #1e293b;
+    margin-bottom: 6px;
+}
+
+.agent-verification-desc {
+    font-size: 0.88rem;
+    color: #64748b;
+    max-width: 420px;
+    margin: 0 auto 20px;
+    line-height: 1.5;
+}
+
+.agent-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px;
+    border-radius: 10px;
+    font-size: 0.88rem;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    transition: all 0.15s;
+}
+
+.agent-btn-primary {
+    background: linear-gradient(135deg, #6366f1, #8b5cf6);
+    color: white;
+}
+
+.agent-btn-primary:hover {
+    opacity: 0.9;
+    transform: translateY(-1px);
+}
+
+/* ── Responsive ─────────────────────────────────────────────────── */
+
+@media (max-width: 768px) {
+    .agent-sidebar {
+        position: fixed;
+        transform: translateX(-100%);
+    }
+
+    .agent-sidebar.open {
+        transform: translateX(0);
+    }
+
+    .agent-main-content {
+        padding: 16px;
+    }
+}

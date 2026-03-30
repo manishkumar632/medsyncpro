@@ -1,0 +1,910 @@
+/* ===================================================================
+   PATIENT PROFILE — Modern Healthcare SaaS
+   =================================================================== */
+
+/* ── Layout ── */
+.pp-layout {
+    display: flex;
+    min-height: 100vh;
+    background: #f0f5f9;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+/* reuse sidebar from dashboard */
+.pp-main {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+/* ── Content ── */
+.pp-content {
+    flex: 1;
+    padding: 24px 32px 100px;
+    max-width: 960px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+/* ── Profile Header Card ── */
+.pp-header-card {
+    background: linear-gradient(135deg, #0d9488 0%, #0891b2 100%);
+    border-radius: 20px;
+    padding: 28px 32px;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    margin-bottom: 24px;
+    box-shadow: 0 4px 20px rgba(13, 148, 136, 0.25);
+    position: relative;
+    overflow: hidden;
+}
+
+.pp-header-card::after {
+    content: '';
+    position: absolute;
+    top: -40px;
+    right: -40px;
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.06);
+}
+
+.pp-avatar-wrap {
+    position: relative;
+    flex-shrink: 0;
+}
+
+.pp-avatar {
+    width: 88px;
+    height: 88px;
+    border-radius: 50%;
+    border: 3px solid rgba(255, 255, 255, 0.4);
+    background: rgba(255, 255, 255, 0.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #fff;
+    overflow: hidden;
+    cursor: pointer;
+    transition: all 0.25s;
+}
+
+.pp-avatar:hover {
+    border-color: #fff;
+}
+
+.pp-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.pp-avatar-upload-btn {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: #fff;
+    color: #0d9488;
+    border: 2px solid #0d9488;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.pp-avatar-upload-btn:hover {
+    transform: scale(1.1);
+}
+
+.pp-header-info {
+    flex: 1;
+}
+
+.pp-header-info h1 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin: 0 0 4px 0;
+}
+
+.pp-header-meta {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    font-size: 0.82rem;
+    opacity: 0.85;
+    flex-wrap: wrap;
+}
+
+.pp-header-meta span {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.pp-header-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 3px 10px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 20px;
+    font-size: 0.72rem;
+    font-weight: 600;
+}
+
+/* ── Completeness Bar ── */
+.pp-completeness {
+    background: #fff;
+    border-radius: 16px;
+    padding: 16px 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 1px 3px rgba(15, 23, 42, 0.06);
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.pp-completeness-text {
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: #334155;
+    white-space: nowrap;
+}
+
+.pp-completeness-text span {
+    color: #0d9488;
+}
+
+.pp-completeness-bar {
+    flex: 1;
+    height: 8px;
+    background: #e2e8f0;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.pp-completeness-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #0d9488, #34d399);
+    border-radius: 4px;
+    transition: width 0.6s ease;
+}
+
+.pp-completeness-pct {
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: #0d9488;
+    min-width: 36px;
+    text-align: right;
+}
+
+/* ── Section Card ── */
+.pp-section {
+    background: #fff;
+    border-radius: 20px;
+    margin-bottom: 16px;
+    box-shadow: 0 1px 3px rgba(15, 23, 42, 0.06);
+    overflow: hidden;
+    border: 1px solid transparent;
+    transition: border-color 0.25s, box-shadow 0.25s;
+}
+
+.pp-section:hover {
+    border-color: #e2e8f0;
+    box-shadow: 0 4px 12px rgba(15, 23, 42, 0.08);
+}
+
+.pp-section-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18px 24px;
+    cursor: pointer;
+    user-select: none;
+}
+
+.pp-section-header h3 {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #1e293b;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.pp-section-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.pp-section-icon.teal {
+    background: #ccfbf1;
+    color: #0d9488;
+}
+
+.pp-section-icon.blue {
+    background: #dbeafe;
+    color: #3b82f6;
+}
+
+.pp-section-icon.purple {
+    background: #ede9fe;
+    color: #8b5cf6;
+}
+
+.pp-section-icon.orange {
+    background: #fef3c7;
+    color: #f59e0b;
+}
+
+.pp-section-icon.red {
+    background: #fee2e2;
+    color: #ef4444;
+}
+
+.pp-section-icon.mint {
+    background: #d1fae5;
+    color: #10b981;
+}
+
+.pp-section-icon.pink {
+    background: #fce7f3;
+    color: #ec4899;
+}
+
+.pp-section-toggle {
+    width: 28px;
+    height: 28px;
+    border: none;
+    background: #f1f5f9;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: #64748b;
+    transition: all 0.25s;
+}
+
+.pp-section-toggle:hover {
+    background: #e2e8f0;
+}
+
+.pp-section-toggle.open {
+    transform: rotate(180deg);
+}
+
+.pp-section-body {
+    padding: 0 24px 24px;
+}
+
+.pp-section-body.collapsed {
+    display: none;
+}
+
+/* ── Form Grid ── */
+.pp-form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+}
+
+.pp-form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.pp-form-group.full {
+    grid-column: 1 / -1;
+}
+
+.pp-form-label {
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: #475569;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.pp-form-label .required {
+    color: #ef4444;
+}
+
+.pp-form-input {
+    padding: 10px 14px;
+    border: 1.5px solid #e2e8f0;
+    border-radius: 10px;
+    font-size: 0.85rem;
+    color: #1e293b;
+    background: #f8fafc;
+    outline: none;
+    font-family: inherit;
+    transition: all 0.25s;
+}
+
+.pp-form-input:focus {
+    border-color: #0d9488;
+    background: #fff;
+    box-shadow: 0 0 0 3px rgba(13, 148, 136, 0.1);
+}
+
+.pp-form-input:disabled {
+    background: #f1f5f9;
+    color: #94a3b8;
+    cursor: not-allowed;
+}
+
+.pp-form-helper {
+    font-size: 0.7rem;
+    color: #94a3b8;
+}
+
+.pp-form-select {
+    padding: 10px 14px;
+    border: 1.5px solid #e2e8f0;
+    border-radius: 10px;
+    font-size: 0.85rem;
+    color: #1e293b;
+    background: #f8fafc;
+    outline: none;
+    font-family: inherit;
+    transition: all 0.25s;
+    appearance: none;
+    cursor: pointer;
+}
+
+.pp-form-select:focus {
+    border-color: #0d9488;
+    background: #fff;
+    box-shadow: 0 0 0 3px rgba(13, 148, 136, 0.1);
+}
+
+/* ── Tag Input ── */
+.pp-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 8px;
+}
+
+.pp-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 4px 10px;
+    background: #ccfbf1;
+    color: #0f766e;
+    border-radius: 20px;
+    font-size: 0.76rem;
+    font-weight: 600;
+}
+
+.pp-tag.purple {
+    background: #ede9fe;
+    color: #7c3aed;
+}
+
+.pp-tag.blue {
+    background: #dbeafe;
+    color: #2563eb;
+}
+
+.pp-tag.orange {
+    background: #fef3c7;
+    color: #d97706;
+}
+
+.pp-tag-remove {
+    width: 14px;
+    height: 14px;
+    border: none;
+    background: none;
+    cursor: pointer;
+    color: inherit;
+    opacity: 0.6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    transition: opacity 0.2s;
+}
+
+.pp-tag-remove:hover {
+    opacity: 1;
+}
+
+.pp-tag-input {
+    display: flex;
+    gap: 8px;
+}
+
+.pp-tag-input input {
+    flex: 1;
+    padding: 8px 12px;
+    border: 1.5px dashed #cbd5e1;
+    border-radius: 10px;
+    font-size: 0.82rem;
+    color: #1e293b;
+    background: #f8fafc;
+    outline: none;
+    font-family: inherit;
+}
+
+.pp-tag-input input:focus {
+    border-color: #0d9488;
+}
+
+.pp-tag-input button {
+    padding: 8px 16px;
+    background: #0d9488;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    font-size: 0.78rem;
+    font-weight: 600;
+    cursor: pointer;
+    font-family: inherit;
+    transition: background 0.2s;
+    white-space: nowrap;
+}
+
+.pp-tag-input button:hover {
+    background: #0f766e;
+}
+
+/* ── Emergency Contact Items ── */
+.pp-contact-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.pp-contact-item {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 14px 16px;
+    background: #f8fafc;
+    border-radius: 12px;
+    border: 1px solid #e2e8f0;
+}
+
+.pp-contact-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #ede9fe;
+    color: #8b5cf6;
+    font-weight: 700;
+    font-size: 0.82rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.pp-contact-info {
+    flex: 1;
+}
+
+.pp-contact-info .contact-name {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #1e293b;
+}
+
+.pp-contact-info .contact-detail {
+    font-size: 0.76rem;
+    color: #64748b;
+}
+
+.pp-contact-actions {
+    display: flex;
+    gap: 6px;
+}
+
+.pp-contact-actions button {
+    width: 30px;
+    height: 30px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+}
+
+.pp-contact-actions .btn-edit {
+    background: #dbeafe;
+    color: #3b82f6;
+}
+
+.pp-contact-actions .btn-edit:hover {
+    background: #3b82f6;
+    color: #fff;
+}
+
+.pp-contact-actions .btn-delete {
+    background: #fee2e2;
+    color: #ef4444;
+}
+
+.pp-contact-actions .btn-delete:hover {
+    background: #ef4444;
+    color: #fff;
+}
+
+.pp-add-btn {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 10px 16px;
+    border: 1.5px dashed #cbd5e1;
+    background: none;
+    border-radius: 10px;
+    color: #64748b;
+    font-size: 0.82rem;
+    font-weight: 600;
+    cursor: pointer;
+    font-family: inherit;
+    transition: all 0.2s;
+    margin-top: 10px;
+}
+
+.pp-add-btn:hover {
+    border-color: #0d9488;
+    color: #0d9488;
+    background: #ccfbf1;
+}
+
+/* ── Document Upload ── */
+.pp-upload-area {
+    border: 2px dashed #cbd5e1;
+    border-radius: 16px;
+    padding: 32px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.25s;
+    background: #f8fafc;
+    margin-bottom: 16px;
+}
+
+.pp-upload-area:hover {
+    border-color: #0d9488;
+    background: #ccfbf1;
+}
+
+.pp-upload-area .upload-icon {
+    font-size: 2rem;
+    margin-bottom: 8px;
+    color: #94a3b8;
+}
+
+.pp-upload-area .upload-text {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #475569;
+}
+
+.pp-upload-area .upload-hint {
+    font-size: 0.74rem;
+    color: #94a3b8;
+    margin-top: 4px;
+}
+
+.pp-doc-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.pp-doc-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 14px;
+    background: #f8fafc;
+    border-radius: 10px;
+    border: 1px solid #e2e8f0;
+}
+
+.pp-doc-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    background: #dbeafe;
+    color: #3b82f6;
+}
+
+.pp-doc-info {
+    flex: 1;
+}
+
+.pp-doc-info .doc-name {
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: #1e293b;
+}
+
+.pp-doc-info .doc-meta {
+    font-size: 0.7rem;
+    color: #94a3b8;
+}
+
+.pp-doc-actions {
+    display: flex;
+    gap: 4px;
+}
+
+.pp-doc-actions button {
+    width: 28px;
+    height: 28px;
+    border: none;
+    background: #f1f5f9;
+    border-radius: 6px;
+    color: #64748b;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+}
+
+.pp-doc-actions button:hover {
+    background: #e2e8f0;
+    color: #1e293b;
+}
+
+/* ── Toggle / Switch ── */
+.pp-toggle-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+.pp-toggle-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 0;
+    border-bottom: 1px solid #f1f5f9;
+}
+
+.pp-toggle-item:last-child {
+    border-bottom: none;
+}
+
+.pp-toggle-info {
+    flex: 1;
+}
+
+.pp-toggle-info .toggle-label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #334155;
+}
+
+.pp-toggle-info .toggle-desc {
+    font-size: 0.74rem;
+    color: #94a3b8;
+    margin-top: 2px;
+}
+
+.pp-switch {
+    position: relative;
+    width: 44px;
+    height: 24px;
+    flex-shrink: 0;
+}
+
+.pp-switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.pp-switch-slider {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #cbd5e1;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.25s;
+}
+
+.pp-switch-slider::before {
+    content: '';
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    left: 3px;
+    bottom: 3px;
+    background: #fff;
+    border-radius: 50%;
+    transition: all 0.25s;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+}
+
+.pp-switch input:checked+.pp-switch-slider {
+    background: #0d9488;
+}
+
+.pp-switch input:checked+.pp-switch-slider::before {
+    transform: translateX(20px);
+}
+
+/* ── Account Setting Items ── */
+.pp-setting-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 0;
+    border-bottom: 1px solid #f1f5f9;
+}
+
+.pp-setting-item:last-child {
+    border-bottom: none;
+}
+
+.pp-setting-info {
+    flex: 1;
+}
+
+.pp-setting-info .setting-label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #334155;
+}
+
+.pp-setting-info .setting-desc {
+    font-size: 0.74rem;
+    color: #94a3b8;
+    margin-top: 2px;
+}
+
+.pp-setting-btn {
+    padding: 7px 16px;
+    border: 1.5px solid #e2e8f0;
+    background: #fff;
+    border-radius: 8px;
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: #475569;
+    cursor: pointer;
+    font-family: inherit;
+    transition: all 0.2s;
+}
+
+.pp-setting-btn:hover {
+    border-color: #0d9488;
+    color: #0d9488;
+}
+
+.pp-setting-btn.danger {
+    color: #ef4444;
+    border-color: #fecaca;
+}
+
+.pp-setting-btn.danger:hover {
+    background: #fee2e2;
+    border-color: #ef4444;
+}
+
+/* ── Sticky Save Bar ── */
+.pp-save-bar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #fff;
+    border-top: 1px solid #e2e8f0;
+    padding: 12px 32px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 12px;
+    z-index: 100;
+    box-shadow: 0 -4px 16px rgba(15, 23, 42, 0.08);
+    animation: slideUp 0.3s ease;
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(100%);
+    }
+
+    to {
+        transform: translateY(0);
+    }
+}
+
+.pp-save-bar .save-hint {
+    flex: 1;
+    font-size: 0.82rem;
+    color: #f59e0b;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.pp-save-bar .btn-cancel {
+    padding: 9px 24px;
+    border: 1.5px solid #e2e8f0;
+    background: #fff;
+    border-radius: 10px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: #64748b;
+    cursor: pointer;
+    font-family: inherit;
+    transition: all 0.2s;
+}
+
+.pp-save-bar .btn-cancel:hover {
+    background: #f1f5f9;
+}
+
+.pp-save-bar .btn-save {
+    padding: 9px 28px;
+    border: none;
+    background: #0d9488;
+    border-radius: 10px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: #fff;
+    cursor: pointer;
+    font-family: inherit;
+    transition: all 0.2s;
+}
+
+.pp-save-bar .btn-save:hover {
+    background: #0f766e;
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+    .pp-content {
+        padding: 16px 16px 100px;
+    }
+
+    .pp-header-card {
+        flex-direction: column;
+        text-align: center;
+        padding: 24px 20px;
+    }
+
+    .pp-form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .pp-header-meta {
+        justify-content: center;
+    }
+}

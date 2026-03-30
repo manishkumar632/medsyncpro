@@ -1,0 +1,1224 @@
+/* ===================================================================
+   PATIENT DASHBOARD — Modern Healthcare SaaS
+   Palette: Teal, Blue, Mint, Soft Purple
+   =================================================================== */
+
+/* ── Variables ── */
+:root {
+    --pd-bg: #f0f5f9;
+    --pd-sidebar-bg: linear-gradient(180deg, #f7fafc 0%, #eef4fb 100%);
+    --pd-sidebar-w: 260px;
+    --pd-sidebar-collapsed: 72px;
+    --pd-teal: #0d9488;
+    --pd-teal-light: #ccfbf1;
+    --pd-teal-dark: #0f766e;
+    --pd-blue: #3b82f6;
+    --pd-blue-light: #dbeafe;
+    --pd-mint: #34d399;
+    --pd-mint-light: #d1fae5;
+    --pd-purple: #8b5cf6;
+    --pd-purple-light: #ede9fe;
+    --pd-orange: #f59e0b;
+    --pd-orange-light: #fef3c7;
+    --pd-red: #ef4444;
+    --pd-red-light: #fee2e2;
+    --pd-pink: #ec4899;
+    --pd-pink-light: #fce7f3;
+    --pd-white: #ffffff;
+    --pd-gray-50: #f8fafc;
+    --pd-gray-100: #f1f5f9;
+    --pd-gray-200: #e2e8f0;
+    --pd-gray-300: #cbd5e1;
+    --pd-gray-400: #94a3b8;
+    --pd-gray-500: #64748b;
+    --pd-gray-600: #475569;
+    --pd-gray-700: #334155;
+    --pd-gray-800: #1e293b;
+    --pd-radius: 20px;
+    --pd-radius-sm: 12px;
+    --pd-radius-xs: 8px;
+    --pd-shadow: 0 1px 3px rgba(15, 23, 42, 0.06), 0 1px 2px rgba(15, 23, 42, 0.04);
+    --pd-shadow-md: 0 4px 12px rgba(15, 23, 42, 0.08);
+    --pd-shadow-lg: 0 8px 24px rgba(15, 23, 42, 0.1);
+    --pd-transition: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ── Layout ── */
+.pd-layout {
+    display: flex;
+    min-height: 100vh;
+    background: var(--pd-bg);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+/* ── Sidebar ── */
+.pd-sidebar {
+    width: var(--pd-sidebar-w);
+    height: 100vh;
+    background: var(--pd-sidebar-bg);
+    border-right: 1px solid var(--pd-gray-200);
+    display: flex;
+    flex-direction: column;
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    flex-shrink: 0;
+    overflow-y: auto;
+    overflow-x: hidden;
+    transition: width var(--pd-transition);
+}
+
+.pd-sidebar.collapsed {
+    width: var(--pd-sidebar-collapsed);
+}
+
+.pd-sidebar::-webkit-scrollbar {
+    width: 4px;
+}
+
+.pd-sidebar::-webkit-scrollbar-thumb {
+    background: var(--pd-gray-300);
+    border-radius: 4px;
+}
+
+.pd-sidebar-header {
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+    border-bottom: 1px solid var(--pd-gray-200);
+}
+
+.pd-sidebar-logo {
+    width: 36px;
+    height: 36px;
+    background: linear-gradient(135deg, var(--pd-teal), var(--pd-blue));
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.pd-sidebar-brand {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--pd-gray-800);
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.pd-sidebar.collapsed .pd-sidebar-brand {
+    display: none;
+}
+
+.pd-sidebar-nav {
+    flex: 1;
+    padding: 12px 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.pd-nav-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 14px;
+    border-radius: var(--pd-radius-sm);
+    color: var(--pd-gray-500);
+    font-size: 0.875rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all var(--pd-transition);
+    text-decoration: none;
+    position: relative;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.pd-nav-item:hover {
+    background: var(--pd-teal-light);
+    color: var(--pd-teal-dark);
+}
+
+.pd-nav-item.active {
+    background: var(--pd-teal);
+    color: var(--pd-white);
+    font-weight: 600;
+    box-shadow: 0 2px 8px rgba(13, 148, 136, 0.3);
+}
+
+.pd-nav-item .nav-icon {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.pd-nav-item .nav-label {
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.pd-sidebar.collapsed .nav-label {
+    display: none;
+}
+
+.pd-sidebar.collapsed .pd-nav-item {
+    justify-content: center;
+    padding: 10px;
+}
+
+.pd-nav-badge {
+    margin-left: auto;
+    background: var(--pd-red);
+    color: var(--pd-white);
+    font-size: 0.65rem;
+    font-weight: 700;
+    min-width: 18px;
+    height: 18px;
+    border-radius: 9px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 5px;
+}
+
+.pd-sidebar.collapsed .pd-nav-badge {
+    position: absolute;
+    top: 4px;
+    right: 4px;
+    min-width: 8px;
+    height: 8px;
+    padding: 0;
+    font-size: 0;
+}
+
+.pd-sidebar-footer {
+    padding: 16px;
+    border-top: 1px solid var(--pd-gray-200);
+    flex-shrink: 0;
+}
+
+.pd-sidebar-toggle {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 8px;
+    border: none;
+    background: var(--pd-gray-100);
+    border-radius: var(--pd-radius-xs);
+    color: var(--pd-gray-500);
+    cursor: pointer;
+    font-size: 0.8rem;
+    transition: all var(--pd-transition);
+}
+
+.pd-sidebar-toggle:hover {
+    background: var(--pd-gray-200);
+}
+
+/* ── Main Content ── */
+.pd-main {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+/* ── Top Navbar ── */
+.pd-navbar {
+    height: 64px;
+    background: var(--pd-white);
+    border-bottom: 1px solid var(--pd-gray-200);
+    display: flex;
+    align-items: center;
+    padding: 0 28px;
+    gap: 16px;
+    position: sticky;
+    top: 0;
+    z-index: 40;
+}
+
+.pd-nav-toggle {
+    width: 36px;
+    height: 36px;
+    border: none;
+    background: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--pd-radius-xs);
+    color: var(--pd-gray-500);
+    transition: all var(--pd-transition);
+}
+
+.pd-nav-toggle:hover {
+    background: var(--pd-gray-100);
+}
+
+.pd-navbar-search {
+    flex: 1;
+    max-width: 400px;
+    position: relative;
+}
+
+.pd-navbar-search input {
+    width: 100%;
+    padding: 8px 12px 8px 36px;
+    border: 1.5px solid var(--pd-gray-200);
+    border-radius: var(--pd-radius-sm);
+    font-size: 0.85rem;
+    color: var(--pd-gray-700);
+    background: var(--pd-gray-50);
+    outline: none;
+    font-family: inherit;
+    transition: all var(--pd-transition);
+}
+
+.pd-navbar-search input:focus {
+    border-color: var(--pd-teal);
+    box-shadow: 0 0 0 3px rgba(13, 148, 136, 0.1);
+}
+
+.pd-navbar-search .search-icon {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--pd-gray-400);
+}
+
+.pd-navbar-right {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-left: auto;
+}
+
+.pd-icon-btn {
+    width: 38px;
+    height: 38px;
+    border: none;
+    background: var(--pd-gray-50);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: var(--pd-gray-500);
+    position: relative;
+    transition: all var(--pd-transition);
+}
+
+.pd-icon-btn:hover {
+    background: var(--pd-teal-light);
+    color: var(--pd-teal);
+}
+
+.pd-icon-btn .notif-dot {
+    position: absolute;
+    top: 6px;
+    right: 6px;
+    width: 8px;
+    height: 8px;
+    background: var(--pd-red);
+    border-radius: 50%;
+    border: 2px solid var(--pd-white);
+}
+
+.pd-avatar-sm {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: var(--pd-teal);
+    color: var(--pd-white);
+    font-weight: 700;
+    font-size: 0.8rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    overflow: hidden;
+    border: 2px solid var(--pd-teal-light);
+}
+
+.pd-avatar-sm img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* ── Dashboard Content ── */
+.pd-content {
+    padding: 24px 28px;
+    flex: 1;
+}
+
+/* ── Greeting Section ── */
+.pd-greeting {
+    margin-bottom: 24px;
+}
+
+.pd-greeting h1 {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--pd-gray-800);
+    margin: 0 0 4px 0;
+}
+
+.pd-greeting p {
+    font-size: 0.9rem;
+    color: var(--pd-gray-500);
+    margin: 0;
+}
+
+/* ── Reminder Banner ── */
+.pd-reminder-banner {
+    background: linear-gradient(135deg, var(--pd-teal), #0891b2);
+    border-radius: var(--pd-radius);
+    padding: 16px 24px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 24px;
+    color: var(--pd-white);
+    box-shadow: 0 4px 16px rgba(13, 148, 136, 0.25);
+}
+
+.pd-reminder-banner .banner-icon {
+    width: 44px;
+    height: 44px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.pd-reminder-banner .banner-text {
+    flex: 1;
+}
+
+.pd-reminder-banner .banner-text h3 {
+    font-size: 0.95rem;
+    font-weight: 600;
+    margin: 0 0 2px 0;
+}
+
+.pd-reminder-banner .banner-text p {
+    font-size: 0.8rem;
+    opacity: 0.85;
+    margin: 0;
+}
+
+.pd-reminder-banner .banner-action {
+    background: var(--pd-white);
+    color: var(--pd-teal-dark);
+    border: none;
+    padding: 8px 20px;
+    border-radius: var(--pd-radius-sm);
+    font-weight: 600;
+    font-size: 0.8rem;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: all var(--pd-transition);
+    font-family: inherit;
+}
+
+.pd-reminder-banner .banner-action:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* ── KPI Summary Cards ── */
+.pd-kpi-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+.pd-kpi-card {
+    background: var(--pd-white);
+    border-radius: var(--pd-radius);
+    padding: 20px;
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    box-shadow: var(--pd-shadow);
+    transition: all var(--pd-transition);
+    border: 1px solid transparent;
+}
+
+.pd-kpi-card:hover {
+    box-shadow: var(--pd-shadow-md);
+    transform: translateY(-2px);
+    border-color: var(--pd-gray-200);
+}
+
+.pd-kpi-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.pd-kpi-icon.teal {
+    background: var(--pd-teal-light);
+    color: var(--pd-teal);
+}
+
+.pd-kpi-icon.blue {
+    background: var(--pd-blue-light);
+    color: var(--pd-blue);
+}
+
+.pd-kpi-icon.purple {
+    background: var(--pd-purple-light);
+    color: var(--pd-purple);
+}
+
+.pd-kpi-icon.orange {
+    background: var(--pd-orange-light);
+    color: var(--pd-orange);
+}
+
+.pd-kpi-icon.mint {
+    background: var(--pd-mint-light);
+    color: var(--pd-mint);
+}
+
+.pd-kpi-icon.red {
+    background: var(--pd-red-light);
+    color: var(--pd-red);
+}
+
+.pd-kpi-icon.pink {
+    background: var(--pd-pink-light);
+    color: var(--pd-pink);
+}
+
+.pd-kpi-info {
+    flex: 1;
+}
+
+.pd-kpi-info .kpi-label {
+    font-size: 0.78rem;
+    color: var(--pd-gray-500);
+    font-weight: 500;
+    margin-bottom: 4px;
+}
+
+.pd-kpi-info .kpi-value {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--pd-gray-800);
+    line-height: 1.1;
+}
+
+.pd-kpi-info .kpi-sub {
+    font-size: 0.72rem;
+    color: var(--pd-gray-400);
+    margin-top: 4px;
+}
+
+/* ── Quick Actions ── */
+.pd-quick-actions {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 24px;
+    flex-wrap: wrap;
+}
+
+.pd-quick-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 18px;
+    background: var(--pd-white);
+    border: 1.5px solid var(--pd-gray-200);
+    border-radius: var(--pd-radius-sm);
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--pd-gray-700);
+    cursor: pointer;
+    transition: all var(--pd-transition);
+    font-family: inherit;
+    white-space: nowrap;
+}
+
+.pd-quick-btn:hover {
+    border-color: var(--pd-teal);
+    color: var(--pd-teal);
+    background: var(--pd-teal-light);
+    transform: translateY(-1px);
+    box-shadow: var(--pd-shadow);
+}
+
+.pd-quick-btn.primary {
+    background: var(--pd-teal);
+    color: var(--pd-white);
+    border-color: var(--pd-teal);
+}
+
+.pd-quick-btn.primary:hover {
+    background: var(--pd-teal-dark);
+    border-color: var(--pd-teal-dark);
+    color: var(--pd-white);
+}
+
+/* ── Dashboard Grid ── */
+.pd-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-bottom: 24px;
+}
+
+.pd-grid-full {
+    grid-column: 1 / -1;
+}
+
+/* ── Card ── */
+.pd-card {
+    background: var(--pd-white);
+    border-radius: var(--pd-radius);
+    box-shadow: var(--pd-shadow);
+    overflow: hidden;
+    transition: all var(--pd-transition);
+    border: 1px solid transparent;
+}
+
+.pd-card:hover {
+    box-shadow: var(--pd-shadow-md);
+    border-color: var(--pd-gray-200);
+}
+
+.pd-card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18px 20px 0;
+}
+
+.pd-card-header h3 {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--pd-gray-800);
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.pd-card-header .card-link {
+    font-size: 0.78rem;
+    color: var(--pd-teal);
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: none;
+    transition: color var(--pd-transition);
+}
+
+.pd-card-header .card-link:hover {
+    color: var(--pd-teal-dark);
+}
+
+.pd-card-body {
+    padding: 16px 20px 20px;
+}
+
+/* ── Appointment List ── */
+.pd-appt-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.pd-appt-item {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 14px;
+    background: var(--pd-gray-50);
+    border-radius: var(--pd-radius-sm);
+    transition: all var(--pd-transition);
+    border: 1px solid transparent;
+}
+
+.pd-appt-item:hover {
+    background: var(--pd-teal-light);
+    border-color: rgba(13, 148, 136, 0.15);
+}
+
+.pd-appt-date {
+    width: 52px;
+    text-align: center;
+    flex-shrink: 0;
+}
+
+.pd-appt-date .date-day {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--pd-teal);
+    line-height: 1;
+}
+
+.pd-appt-date .date-month {
+    font-size: 0.7rem;
+    color: var(--pd-gray-500);
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+}
+
+.pd-appt-divider {
+    width: 1px;
+    height: 36px;
+    background: var(--pd-gray-200);
+    flex-shrink: 0;
+}
+
+.pd-appt-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.pd-appt-info .appt-doctor {
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: var(--pd-gray-800);
+    margin-bottom: 2px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.pd-appt-info .appt-detail {
+    font-size: 0.76rem;
+    color: var(--pd-gray-500);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.pd-appt-actions {
+    display: flex;
+    gap: 6px;
+    flex-shrink: 0;
+}
+
+.pd-appt-actions button {
+    padding: 5px 12px;
+    border: none;
+    border-radius: var(--pd-radius-xs);
+    font-size: 0.72rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all var(--pd-transition);
+    font-family: inherit;
+}
+
+.pd-appt-actions .btn-view {
+    background: var(--pd-teal-light);
+    color: var(--pd-teal-dark);
+}
+
+.pd-appt-actions .btn-view:hover {
+    background: var(--pd-teal);
+    color: var(--pd-white);
+}
+
+.pd-appt-actions .btn-reschedule {
+    background: var(--pd-blue-light);
+    color: var(--pd-blue);
+}
+
+.pd-appt-actions .btn-reschedule:hover {
+    background: var(--pd-blue);
+    color: var(--pd-white);
+}
+
+/* ── Status Badges ── */
+.pd-badge {
+    font-size: 0.68rem;
+    font-weight: 600;
+    padding: 3px 10px;
+    border-radius: 20px;
+    white-space: nowrap;
+}
+
+.pd-badge.confirmed {
+    background: var(--pd-mint-light);
+    color: #059669;
+}
+
+.pd-badge.pending {
+    background: var(--pd-orange-light);
+    color: #d97706;
+}
+
+.pd-badge.cancelled {
+    background: var(--pd-red-light);
+    color: var(--pd-red);
+}
+
+.pd-badge.online {
+    background: var(--pd-blue-light);
+    color: var(--pd-blue);
+}
+
+.pd-badge.in-person {
+    background: var(--pd-purple-light);
+    color: var(--pd-purple);
+}
+
+.pd-badge.active {
+    background: var(--pd-mint-light);
+    color: #059669;
+}
+
+.pd-badge.refill-needed {
+    background: var(--pd-orange-light);
+    color: #d97706;
+}
+
+.pd-badge.expired {
+    background: var(--pd-red-light);
+    color: var(--pd-red);
+}
+
+/* ── Prescriptions ── */
+.pd-rx-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.pd-rx-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 14px;
+    background: var(--pd-gray-50);
+    border-radius: var(--pd-radius-sm);
+    transition: all var(--pd-transition);
+}
+
+.pd-rx-item:hover {
+    background: var(--pd-blue-light);
+}
+
+.pd-rx-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.pd-rx-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.pd-rx-info .rx-name {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--pd-gray-800);
+}
+
+.pd-rx-info .rx-detail {
+    font-size: 0.74rem;
+    color: var(--pd-gray-500);
+    margin-top: 1px;
+}
+
+.pd-rx-right {
+    text-align: right;
+    flex-shrink: 0;
+}
+
+.pd-rx-right .rx-days {
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: var(--pd-gray-700);
+}
+
+.pd-rx-right .rx-dosage {
+    font-size: 0.7rem;
+    color: var(--pd-gray-400);
+}
+
+/* ── Adherence Bar ── */
+.pd-adherence {
+    margin-top: 14px;
+    padding: 12px 14px;
+    background: var(--pd-mint-light);
+    border-radius: var(--pd-radius-sm);
+}
+
+.pd-adherence-label {
+    font-size: 0.76rem;
+    font-weight: 600;
+    color: #059669;
+    margin-bottom: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.pd-adherence-bar {
+    height: 6px;
+    background: rgba(5, 150, 105, 0.15);
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.pd-adherence-fill {
+    height: 100%;
+    background: #059669;
+    border-radius: 3px;
+    transition: width 0.6s ease;
+}
+
+/* ── Vitals Chart ── */
+.pd-vitals-tabs {
+    display: flex;
+    gap: 4px;
+    margin-bottom: 16px;
+    background: var(--pd-gray-100);
+    border-radius: var(--pd-radius-xs);
+    padding: 3px;
+}
+
+.pd-vital-tab {
+    padding: 6px 16px;
+    border: none;
+    background: none;
+    border-radius: 6px;
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: var(--pd-gray-500);
+    cursor: pointer;
+    transition: all var(--pd-transition);
+    font-family: inherit;
+}
+
+.pd-vital-tab.active {
+    background: var(--pd-white);
+    color: var(--pd-teal);
+    box-shadow: var(--pd-shadow);
+}
+
+.pd-vital-tab:hover:not(.active) {
+    color: var(--pd-gray-700);
+}
+
+.pd-chart-container {
+    height: 220px;
+    width: 100%;
+}
+
+.pd-vital-stats {
+    display: flex;
+    gap: 16px;
+    margin-top: 12px;
+}
+
+.pd-vital-stat {
+    flex: 1;
+    padding: 10px;
+    background: var(--pd-gray-50);
+    border-radius: var(--pd-radius-xs);
+    text-align: center;
+}
+
+.pd-vital-stat .stat-label {
+    font-size: 0.7rem;
+    color: var(--pd-gray-500);
+    font-weight: 500;
+}
+
+.pd-vital-stat .stat-value {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--pd-gray-800);
+    margin-top: 2px;
+}
+
+.pd-vital-stat .stat-unit {
+    font-size: 0.7rem;
+    color: var(--pd-gray-400);
+}
+
+/* ── Timeline ── */
+.pd-timeline {
+    position: relative;
+    padding-left: 24px;
+}
+
+.pd-timeline::before {
+    content: '';
+    position: absolute;
+    left: 7px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: var(--pd-gray-200);
+}
+
+.pd-timeline-item {
+    position: relative;
+    padding-bottom: 20px;
+}
+
+.pd-timeline-item:last-child {
+    padding-bottom: 0;
+}
+
+.pd-timeline-dot {
+    position: absolute;
+    left: -20px;
+    top: 4px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: 2.5px solid var(--pd-teal);
+    background: var(--pd-white);
+}
+
+.pd-timeline-dot.visit {
+    border-color: var(--pd-teal);
+}
+
+.pd-timeline-dot.diagnosis {
+    border-color: var(--pd-purple);
+}
+
+.pd-timeline-dot.prescription {
+    border-color: var(--pd-blue);
+}
+
+.pd-timeline-dot.lab {
+    border-color: var(--pd-orange);
+}
+
+.pd-timeline-date {
+    font-size: 0.7rem;
+    color: var(--pd-gray-400);
+    font-weight: 500;
+    margin-bottom: 3px;
+}
+
+.pd-timeline-title {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--pd-gray-800);
+    margin-bottom: 2px;
+}
+
+.pd-timeline-desc {
+    font-size: 0.76rem;
+    color: var(--pd-gray-500);
+}
+
+/* ── Messages ── */
+.pd-msg-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.pd-msg-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 14px;
+    background: var(--pd-gray-50);
+    border-radius: var(--pd-radius-sm);
+    cursor: pointer;
+    transition: all var(--pd-transition);
+}
+
+.pd-msg-item:hover {
+    background: var(--pd-blue-light);
+}
+
+.pd-msg-item.unread {
+    background: var(--pd-blue-light);
+    border-left: 3px solid var(--pd-blue);
+}
+
+.pd-msg-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--pd-purple);
+    color: var(--pd-white);
+    font-weight: 700;
+    font-size: 0.8rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.pd-msg-content {
+    flex: 1;
+    min-width: 0;
+}
+
+.pd-msg-content .msg-name {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--pd-gray-800);
+}
+
+.pd-msg-content .msg-preview {
+    font-size: 0.76rem;
+    color: var(--pd-gray-500);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.pd-msg-time {
+    font-size: 0.68rem;
+    color: var(--pd-gray-400);
+    flex-shrink: 0;
+    white-space: nowrap;
+}
+
+/* ── Notifications Widget ── */
+.pd-notif-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.pd-notif-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 10px 12px;
+    border-radius: var(--pd-radius-xs);
+    background: var(--pd-gray-50);
+    transition: all var(--pd-transition);
+}
+
+.pd-notif-item:hover {
+    background: var(--pd-gray-100);
+}
+
+.pd-notif-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    font-size: 0.85rem;
+}
+
+.pd-notif-text {
+    flex: 1;
+}
+
+.pd-notif-text .notif-title {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--pd-gray-700);
+}
+
+.pd-notif-text .notif-time {
+    font-size: 0.7rem;
+    color: var(--pd-gray-400);
+    margin-top: 1px;
+}
+
+/* ── Empty State ── */
+.pd-empty-state {
+    text-align: center;
+    padding: 32px 20px;
+    color: var(--pd-gray-400);
+}
+
+.pd-empty-state .empty-icon {
+    font-size: 2.2rem;
+    margin-bottom: 8px;
+}
+
+.pd-empty-state .empty-title {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--pd-gray-600);
+    margin-bottom: 4px;
+}
+
+.pd-empty-state .empty-desc {
+    font-size: 0.78rem;
+    color: var(--pd-gray-400);
+}
+
+/* ── Responsive ── */
+@media (max-width: 1100px) {
+    .pd-kpi-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .pd-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .pd-sidebar {
+        position: fixed;
+        transform: translateX(-100%);
+        z-index: 100;
+    }
+
+    .pd-sidebar.open {
+        transform: translateX(0);
+    }
+
+    .pd-kpi-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .pd-content {
+        padding: 16px;
+    }
+
+    .pd-navbar {
+        padding: 0 16px;
+    }
+
+    .pd-quick-actions {
+        overflow-x: auto;
+        flex-wrap: nowrap;
+    }
+}
+
+@media (max-width: 480px) {
+    .pd-kpi-grid {
+        grid-template-columns: 1fr;
+    }
+}
