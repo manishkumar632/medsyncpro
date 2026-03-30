@@ -1,0 +1,38 @@
+﻿[INFO] Scanning for projects...
+[INFO] 
+[INFO] ---------------------< com.medsyncpro:medsyncpro >----------------------
+[INFO] Building medsyncpro 0.0.1-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- resources:3.4.0:resources (default-resources) @ medsyncpro ---
+[INFO] Copying 2 resources from src\main\resources to target\classes
+[INFO] Copying 0 resource from src\main\resources to target\classes
+[INFO] 
+[INFO] --- compiler:3.15.0:compile (default-compile) @ medsyncpro ---
+[INFO] Recompiling the module because of changed source code.
+[INFO] Compiling 135 source files with javac [debug parameters release 21] to target\classes
+[INFO] Some messages have been simplified; recompile with -Xdiags:verbose to get full output
+[INFO] -------------------------------------------------------------
+[ERROR] COMPILATION ERROR : 
+[INFO] -------------------------------------------------------------
+[ERROR] /C:/Users/manis/Documents/infosys/medsyncpro-backend/src/main/java/com/medsyncpro/event/VerificationEventListener.java:[175,54] incompatible types: java.util.UUID cannot be converted to java.lang.String
+[ERROR] /C:/Users/manis/Documents/infosys/medsyncpro-backend/src/main/java/com/medsyncpro/event/VerificationEventListener.java:[223,54] incompatible types: java.util.UUID cannot be converted to java.lang.String
+[INFO] 2 errors 
+[INFO] -------------------------------------------------------------
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  13.769 s
+[INFO] Finished at: 2026-03-06T00:10:32+05:30
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.15.0:compile (default-compile) on project medsyncpro: Compilation failure: Compilation failure: 
+[ERROR] /C:/Users/manis/Documents/infosys/medsyncpro-backend/src/main/java/com/medsyncpro/event/VerificationEventListener.java:[175,54] incompatible types: java.util.UUID cannot be converted to java.lang.String
+[ERROR] /C:/Users/manis/Documents/infosys/medsyncpro-backend/src/main/java/com/medsyncpro/event/VerificationEventListener.java:[223,54] incompatible types: java.util.UUID cannot be converted to java.lang.String
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
